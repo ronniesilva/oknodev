@@ -31,3 +31,11 @@
     $ git pull origin master
 
     Usar pelo visual studio code
+
+Para enviar os arquivos
+
+1 Marcar como stage
+2 Dar um commit
+3 Enviar as modificações comitadas
+    $ git push origin master
+
