@@ -1,0 +1,18 @@
+1 gerei a chave
+    $ ssh-keygen -t rsa -C "ronniefsilva@gmail.com"
+2 adicionei a chave ssa id_rsa.pub no site github.com
+3 gerei o arquivo config (este arquivo)
+4 rodei o comando
+    $ ssh-add ˜/.ssh/id_rsa
+5 Verificar se a chave foi adicionada
+    $ ssh-add -l
+6 Colocar nos known_hosts
+    $ ssh -T gh
+
+7 Inicializar repositorio Git no diretorio do projeto
+    $ git init
+    $ git remote add origin git@gh:ronniesilva/oknodev.git
+8 Pegar o que já tem no repositorio
+    $ git pull origin master
+
+    Usar pelo visual studio code
