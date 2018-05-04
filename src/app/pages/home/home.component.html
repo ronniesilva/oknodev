@@ -1,0 +1,48 @@
+<div class="row center-align">
+  <img width="100" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+  <h4>
+    OkNo
+  </h4>
+</div>
+
+<div class="row center-align">
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">email</i>
+        <input name="email" id="email" type="email" class="validate" [(ngModel)]="email" required minlength="3" #emailControl="ngModel">
+        <label for="email">Email</label>
+      </div>
+      <div class="input-field col s12">
+        <i class="material-icons prefix">vpn_key</i>
+        <input name="passwd" id="password" type="password" class="validate" [(ngModel)]="passwd" required minlength="6" #pwControl="ngModel">
+        <label for="password">Password</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s6">
+        <button class="waves-effect waves-light btn teal lighten-2" type="submit" name="action" [disabled]="emailControl.invalid || pwControl.invalid" (click)="onSignin()">Entrar</button>
+      </div>
+      <div class="col s6">
+        <a class="waves-effect waves-light btn teal lighten-3"  routerLink="/signup" routerLinkActive="active">Cadastrar</a>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="row center-align">
+  <div class="col s12">
+    <a class="waves-effect waves-light btn-large blue darken-3"  routerLink="/terminal" routerLinkActive="active">
+      Terminal
+    </a>
+  </div>
+</div>
+
+
+<!-- Mostra os usuario cadastrados -->
+<!-- <ul materialize="collapsible" class="collapsible" data-collapsible="accordion" *ngFor="let user of usersService.users$ | async">
+  <li>
+    <div class="collapsible-header"><i class="material-icons">whatshot</i>{{ user.email}}</div>
+    <div class="collapsible-body"><p>{{user.passwd}}</p></div>
+  </li>
+</ul> -->
