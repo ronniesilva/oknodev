@@ -26,3 +26,5 @@ Angular: 5.2.10
 typescript: 2.5.3
 webpack: 3.11.0
 MacBook-Pro-de-RONNIE:oknodev ronnie$ 
+
+Ok
