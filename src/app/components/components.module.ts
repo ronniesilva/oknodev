@@ -8,6 +8,7 @@ import 'materialize-css';
 import { MaterializeModule } from 'angular2-materialize';
 
 import { CompanyAddComponent } from './company-add/company-add.component';
+import { TerminalLoginComponent } from './terminal-login/terminal-login.component';
 
 @NgModule({
   imports: [
@@ -18,10 +19,12 @@ import { CompanyAddComponent } from './company-add/company-add.component';
     ComponentsRoutingModule
   ],
   declarations: [
-    CompanyAddComponent
+    CompanyAddComponent,
+    TerminalLoginComponent
   ],
   exports: [
-    CompanyAddComponent
+    CompanyAddComponent,
+    TerminalLoginComponent
   ]
 })
 export class ComponentsModule { }

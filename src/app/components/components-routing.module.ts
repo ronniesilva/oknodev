@@ -3,8 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { Routes, RouterModule } from '@angular/router';
 
+import { CompanyAddComponent } from './company-add/company-add.component';
+import { TerminalLoginComponent } from './terminal-login/terminal-login.component';
+
 const componentsRoutes: Routes = [
-  // { path: 'xxx', component: CompanyAddComponent }
+  { path: 'companyadd', component: CompanyAddComponent },
+  { path: 'terminallogin', component: TerminalLoginComponent }
 ];
 
 @NgModule({
