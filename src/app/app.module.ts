@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
 import { AuthService } from './providers/auth.service';
 import { UsersService } from './providers/users.service';
+import { CompaniesService } from './providers/companies.service';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { UsersService } from './providers/users.service';
   ],
   providers: [
     AuthService,
+    CompaniesService,
     UsersService
   ],
   bootstrap: [AppComponent]

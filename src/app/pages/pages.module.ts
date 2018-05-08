@@ -4,18 +4,25 @@ import { FormsModule } from '@angular/forms';
 
 import 'materialize-css';
 import { MaterializeModule } from 'angular2-materialize';
-import { ManagerComponent } from './manager/manager.component';
 
+import { ComponentsModule } from './../components/components.module';
 import { PagesRoutingModule } from './pages-routing.module';
+
 import { HomeComponent } from './home/home.component';
 import { TerminalComponent } from './terminal/terminal.component';
+import { ManagerComponent } from './manager/manager.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     MaterializeModule,
-    PagesRoutingModule
+
+    // Modulo de roteamento
+    PagesRoutingModule,
+
+    // Modulos
+    ComponentsModule
   ],
   declarations: [
     HomeComponent,
