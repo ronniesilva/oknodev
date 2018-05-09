@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { AngularFirestore } from 'angularfire2/firestore';
-import { AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { CollectionReference } from '@firebase/firestore-types';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -14,7 +13,7 @@ export class UsersService {
 
   usersRef: AngularFirestoreCollection<User>;
   users$: Observable<User[]>;
-  user: Observable<User | null>;
+  // user: Observable<User | null>;
 
   constructor(
     private db: AngularFirestore
@@ -56,7 +55,6 @@ export class UsersService {
   }
 
   getUserId(uid: string): Observable<User> {
-    // return this.db.doc('users/' + id).valueChanges();
     return this.usersRef.doc<User>(uid).valueChanges();
   }
 

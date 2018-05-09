@@ -5,10 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { CompanyAddComponent } from './company-add/company-add.component';
 import { TerminalLoginComponent } from './terminal-login/terminal-login.component';
+import { TerminalRatingComponent } from './terminal-rating/terminal-rating.component';
 
 const componentsRoutes: Routes = [
   { path: 'companyadd', component: CompanyAddComponent },
-  { path: 'terminallogin', component: TerminalLoginComponent }
+  { path: 'terminallogin', component: TerminalLoginComponent },
+  { path: 'rating', component: TerminalRatingComponent }
 ];
 
 @NgModule({
