@@ -12,7 +12,7 @@ import { RatingService } from './../../providers/rating.service';
 })
 export class TerminalRatingComponent implements OnInit {
 
-  private company = 'teste01';
+  private company = 'empresa01';
   rating: Rating;
   rating$: Observable<Rating[]>;
 
@@ -25,11 +25,6 @@ export class TerminalRatingComponent implements OnInit {
   ngOnInit() {
     this.rating$.subscribe(x => {
       this.rating = x[0];
-      if (x[0] === undefined) {
-        this.ratingService.startRating(this.company)
-          .then(() => console.log('Rating inicializado'))
-          .catch(err => console.log('Erro na inicialização do rating: ' + err));
-      }
     });
 
   }

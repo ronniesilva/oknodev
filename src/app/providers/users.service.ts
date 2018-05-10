@@ -12,30 +12,12 @@ import { firestore } from 'firebase/app';
 export class UsersService {
 
   usersRef: AngularFirestoreCollection<User>;
-  users$: Observable<User[]>;
-  // user: Observable<User | null>;
 
   constructor(
     private db: AngularFirestore
   ) {
-    this.setUsers();
-  }
-
-  setUsers() {
+    // referências não executa nenhuma operação de rede.
     this.usersRef = this.db.collection<User>('users');
-    this.users$ = this.usersRef.valueChanges();
-  }
-
-  addUser(user: User): Promise<User> {
-    const uid = this.db.createId();
-    return this.usersRef
-      .add({ 'uid': uid, 'email': user.email, 'passwd': user.passwd })
-      .then((docRef) => {
-        return docRef;
-      })
-      .catch((error) => {
-        return error;
-      });
   }
 
   addUserId(user: User): Promise<void> {
@@ -63,16 +45,16 @@ export class UsersService {
   }
 
   getAllUsers(): any {
-    return this.users$;
+    // return this.usersRef.valueChanges();
+    return this.usersRef.ref.get().then((querySnapshot) => {
+      return querySnapshot;
+    });
   }
 
-  updateUserPasswd(user: User): Promise<void> {
+  updateUser(user: User): Promise<void> {
     return this.usersRef
       .doc<User>(user.uid)
-      .update({ // Update modifica apenas o item
-        'passwd': user.passwd
-      });
+      .update(user);
   }
-
 
 }

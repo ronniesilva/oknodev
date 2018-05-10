@@ -12,13 +12,15 @@
 </nav>
 
 
+<p>Logado com {{ currentUser?.email }}</p>
+
 <div *ngIf="companiesService.companies$; else nenhumaEmpresaCadastrada">
     <p>
         Empresas:
     </p>
 
     <!-- Mostra empresas cadastrados -->
-    <ul materialize="collapsible" class="collapsible" data-collapsible="accordion" *ngFor="let company of companiesService.companies$ | async">
+    <ul materialize="collapsible" class="collapsible" data-collapsible="accordion" *ngFor="let company of myCompanies$ | async">
         <li>
             <div class="collapsible-header">
                 {{ company.name }}

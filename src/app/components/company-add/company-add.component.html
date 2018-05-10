@@ -7,10 +7,15 @@
                     <input name="company" id="company" type="text" class="validate" [(ngModel)]="company" required minlength="3" #companyNameControl="ngModel">
                     <label for="email">Empresa</label>
                 </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">vpn_key</i>
+                    <input name="passwd" id="password" type="password" class="validate" [(ngModel)]="passwd" required minlength="6" #pwControl="ngModel">
+                    <label for="password">Password</label>
+                  </div>
             </div>
             <div class="row">
                 <div class="col s6">
-                    <button class="waves-effect waves-light btn teal lighten-2" type="submit" name="action" [disabled]="companyNameControl.invalid"
+                    <button class="waves-effect waves-light btn teal lighten-2" type="submit" name="action" [disabled]="companyNameControl.invalid || pwControl.invalid"
                         (click)="companyAdd()">Cadastrar Empresa</button>
                 </div>
             </div>

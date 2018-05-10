@@ -12,7 +12,10 @@ import { Company } from './../../interfaces/company';
 })
 export class CompanyAddComponent implements OnInit {
 
+  userUid = 'Om8jvAvm6GWhhDP3qZFQW6NokQQ2';
+
   company: string;
+  passwd: string;
 
   constructor(
     public companiesService: CompaniesService
@@ -23,7 +26,9 @@ export class CompanyAddComponent implements OnInit {
 
   companyAdd() {
     const company: Company = {
-      'name': this.company
+      name: this.company,
+      passwd: this.passwd,
+      owner: this.userUid
     };
 
     // verifica se a empresa existe
@@ -32,9 +37,9 @@ export class CompanyAddComponent implements OnInit {
         if (!achou) {
 
           // Cadastra a empresa
-          this.companiesService.addCompanyId(company)
+          this.companiesService.setCompanyId(company)
             .then(doc => {
-              console.log('Cadastrado com sucesso:');
+              console.log('Cadastrado com sucesso!');
             })
             .catch(err => {
               console.log('[ERRO]:' + err);
