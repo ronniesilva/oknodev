@@ -5,37 +5,33 @@
     <a class="waves-effect waves-teal btn-flat btn-large" routerLink="/companyadd" routerLinkActive="active">
         <i class="material-icons">note_add</i>
     </a>
-    <a class="waves-effect waves-teal btn-flat btn-large" routerLink="/logout" routerLinkActive="active">
+    <a class="waves-effect waves-teal btn-flat btn-large right" routerLink="/logout" routerLinkActive="active">
         <i class="material-icons">exit_to_app</i>
     </a>
 
 </nav>
 
-
-<p>Logado com {{ currentUser?.email }}</p>
-
-<div *ngIf="companiesService.companies$; else nenhumaEmpresaCadastrada">
-    <p>
-        Empresas:
-    </p>
-
-    <!-- Mostra empresas cadastrados -->
-    <ul materialize="collapsible" class="collapsible" data-collapsible="accordion" *ngFor="let company of myCompanies$ | async">
-        <li>
-            <div class="collapsible-header">
-                {{ company.name }}
-                <a class="button is-light" routerLink="/terminal" routerLinkActive="active">
-                    <i class="material-icons">open_in_new</i>
-                </a>
-            </div>
-            <div class="collapsible-body">
+<div class="container">
+    <p>Logado com {{ currentUser?.email }}</p>
+    <div *ngIf="companiesService.companies$; else nenhumaEmpresaCadastrada">
+        <p>
+            Empresas:
+        </p>
+        <!-- Mostra empresas cadastrados -->
+        <ul materialize="collapsible" class="collapsible" data-collapsible="accordion" *ngFor="let company of myCompanies$ | async">
+            <li>
+                <div class="collapsible-header">
                     {{ company.name }}
-            </div>
-        </li>
-    </ul>
-
+                    <a class="button is-light right" [routerLink]="['/rating',company.name]" routerLinkActive="active">
+                        <i class="material-icons">open_in_new</i>
+                    </a>
+                </div>
+                <div class="collapsible-body">
+                    {{ company.name }}
+                </div>
+            </li>
+        </ul>
+    </div>
+    <ng-template #nenhumaEmpresaCadastrada>Nenhuma empresa cadastrada</ng-template>
+    <router-outlet></router-outlet>
 </div>
-
-<ng-template #nenhumaEmpresaCadastrada>Nenhuma empresa cadastrada</ng-template>
-
-<router-outlet></router-outlet>

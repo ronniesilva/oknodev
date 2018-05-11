@@ -1,32 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 
 import { Rating } from './../../interfaces/rating';
 import { RatingService } from './../../providers/rating.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-terminal-rating',
   templateUrl: './terminal-rating.component.html',
   styleUrls: ['./terminal-rating.component.scss']
 })
-export class TerminalRatingComponent implements OnInit {
+export class TerminalRatingComponent implements OnInit, OnDestroy {
 
-  private company = 'empresa01';
-  rating: Rating;
-  rating$: Observable<Rating[]>;
+  private company: string;
+  private rating: Rating;
+  subsRoute$: Subscription;
+  subsRating$: Subscription;
+
 
   constructor(
-    public ratingService: RatingService
+    private ratingService: RatingService,
+    private route: ActivatedRoute
   ) {
-    this.rating$ = this.ratingService.getRatingId(this.company);
+    // Recebe estaticamente o id
+    // this.company = this.route.snapshot.params['id'];
   }
 
   ngOnInit() {
-    this.rating$.subscribe(x => {
-      this.rating = x[0];
+    this.subsRoute$ = this.route.params.subscribe((params: any) => {
+      this.company = params['id'];
     });
 
+    this.subsRating$ = this.ratingService.getRatingId(this.company).subscribe(values => {
+      console.log(values);
+      this.rating = values[0];
+    });
+
+  }
+
+  ngOnDestroy() {
+    this.subsRoute$.unsubscribe();
+    this.subsRating$.unsubscribe();
   }
 
   onLikeDislike(cont: number): void {

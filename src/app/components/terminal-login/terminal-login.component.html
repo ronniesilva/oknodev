@@ -1,25 +1,28 @@
-<div class="row center-align">
-  <form class="col s12">
-    <div class="row">
-      <!-- Empresa -->
-      <div class="input-field col s12">
-        <i class="material-icons prefix">business</i>
-        <input name="company" placeholder="Empresa Id Code" id="company" type="text" class="validate" [(ngModel)]="company" required minlength="3" #companyControl="ngModel">
-        <label for="company">Empresa</label>
+<div class="container">
+  <div class="row center-align">
+    <form class="col s12">
+      <div class="row">
+        <!-- Empresa -->
+        <div class="input-field col s12">
+          <i class="material-icons prefix">business</i>
+          <input name="company" placeholder="Empresa Id Code" id="company" type="text" class="validate" [(ngModel)]="company" required
+            minlength="3" #companyControl="ngModel">
+          <label for="company">Empresa</label>
+        </div>
+        <!-- Senha -->
+        <div class="input-field col s12">
+          <i class="material-icons prefix">vpn_key</i>
+          <input name="passwd" id="password" type="password" class="validate" [(ngModel)]="passwd" required minlength="6" #pwControl="ngModel">
+          <label for="password">Password</label>
+        </div>
       </div>
-      <!-- Senha -->
-      <div class="input-field col s12">
-        <i class="material-icons prefix">vpn_key</i>
-        <input name="passwd" id="password" type="password" class="validate" [(ngModel)]="passwd" required minlength="6" #pwControl="ngModel">
-        <label for="password">Password</label>
+      <!-- Botão enviar -->
+      <div class="row">
+        <div class="col s12">
+          <button class="waves-effect waves-light btn teal lighten-2" type="submit" name="action" [disabled]="companyControl.invalid || pwControl.invalid"
+            (click)="onSigninTerminal()">Entrar</button>
+        </div>
       </div>
-    </div>
-    <!-- Botão enviar -->
-    <div class="row">
-      <div class="col s12">
-        <button class="waves-effect waves-light btn teal lighten-2" type="submit" name="action" [disabled]="companyControl.invalid || pwControl.invalid"
-          (click)="onSigninTerminal()">Entrar</button>
-      </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>

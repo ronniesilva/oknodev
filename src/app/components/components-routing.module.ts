@@ -10,7 +10,7 @@ import { TerminalRatingComponent } from './terminal-rating/terminal-rating.compo
 const componentsRoutes: Routes = [
   { path: 'companyadd', component: CompanyAddComponent },
   { path: 'terminallogin', component: TerminalLoginComponent },
-  { path: 'rating', component: TerminalRatingComponent }
+  { path: 'rating/:id', component: TerminalRatingComponent }
 ];
 
 @NgModule({

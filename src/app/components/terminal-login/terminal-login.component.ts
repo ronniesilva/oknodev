@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-terminal-login',
@@ -7,13 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TerminalLoginComponent implements OnInit {
 
-  constructor() { }
+  company: string;
+
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
   onSigninTerminal() {
-    console.log('Clicou em entrar no terminal');
+    this.router.navigate(['/rating', this.company]);
   }
 
 }
