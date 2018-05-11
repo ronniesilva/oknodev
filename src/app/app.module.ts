@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 // firebase
@@ -28,6 +29,7 @@ import { UsersService } from './providers/users.service';
   imports: [
     BrowserModule,
     CommonModule,
+    FormsModule,
 
     // Routing
     AppRoutingModule,

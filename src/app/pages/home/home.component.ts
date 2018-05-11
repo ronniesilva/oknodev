@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
           .then((isLogged: boolean) => {
                 if (isLogged) {
                   console.log('usuario autenticado. Redirecionando para o manager ...');
-                  this.router.navigate(['/manager']);
+                  this.router.navigate(['manager']);
                 }
               }).catch((error: any) => {
                 console.log(error);

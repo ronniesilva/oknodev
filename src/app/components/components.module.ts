@@ -10,6 +10,7 @@ import { MaterializeModule } from 'angular2-materialize';
 import { CompanyAddComponent } from './company-add/company-add.component';
 import { TerminalLoginComponent } from './terminal-login/terminal-login.component';
 import { TerminalRatingComponent } from './terminal-rating/terminal-rating.component';
+import { ManagerPanelComponent } from './manager-panel/manager-panel.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { TerminalRatingComponent } from './terminal-rating/terminal-rating.compo
   declarations: [
     CompanyAddComponent,
     TerminalLoginComponent,
-    TerminalRatingComponent
+    TerminalRatingComponent,
+    ManagerPanelComponent
   ],
   exports: [
     CompanyAddComponent,

@@ -3,13 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { Routes, RouterModule } from '@angular/router';
 
-import { CompanyAddComponent } from './company-add/company-add.component';
-import { TerminalLoginComponent } from './terminal-login/terminal-login.component';
+import { ManagerPanelComponent } from './manager-panel/manager-panel.component';
 import { TerminalRatingComponent } from './terminal-rating/terminal-rating.component';
 
 const componentsRoutes: Routes = [
-  { path: 'companyadd', component: CompanyAddComponent },
-  { path: 'terminallogin', component: TerminalLoginComponent },
+  { path: 'managerpanel', component: ManagerPanelComponent },
   { path: 'rating/:id', component: TerminalRatingComponent }
 ];
 
@@ -18,7 +16,6 @@ const componentsRoutes: Routes = [
     CommonModule,
     RouterModule.forChild(componentsRoutes)
   ],
-  declarations: [],
   exports: [
     RouterModule
   ]
